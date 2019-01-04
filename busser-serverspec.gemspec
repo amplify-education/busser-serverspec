@@ -1,42 +1,67 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'busser/serverspec/version'
+# -*- encoding: utf-8 -*-
+# stub: busser-serverspec 0.5.10 ruby lib
 
-Gem::Specification.new do |spec|
-  spec.name          = 'busser-serverspec'
-  spec.version       = Busser::Serverspec::VERSION
-  spec.authors       = ['HIGUCHI Daisuke']
-  spec.email         = ['d-higuchi@creationline.com']
-  spec.description   = %q{A Busser runner plugin for Serverspec}
-  spec.summary       = spec.description
-  spec.homepage      = 'https://github.com/test-kitchen/busser-serverspec'
-  spec.license       = 'Apache 2.0'
+Gem::Specification.new do |s|
+  s.name = "busser-serverspec".freeze
+  s.version = "0.5.9910"
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = []
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ['lib']
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["HIGUCHI Daisuke".freeze]
+  s.date = "2019-01-04"
+  s.description = "A Busser runner plugin for Serverspec".freeze
+  s.email = ["d-higuchi@creationline.com".freeze]
+  s.files = [".cane".freeze, ".gitignore".freeze, ".tailor".freeze, ".travis.yml".freeze, "CHANGELOG.md".freeze, "CONTRIBUTING.md".freeze, "Gemfile".freeze, "LICENSE".freeze, "README.md".freeze, "Rakefile".freeze, "busser-serverspec.gemspec".freeze, "features/plugin_install_command.feature".freeze, "features/plugin_list_command.feature".freeze, "features/support/env.rb".freeze, "features/test_command.feature".freeze, "lib/busser/runner_plugin/serverspec.rb".freeze, "lib/busser/serverspec/runner.rb".freeze, "lib/busser/serverspec/version.rb".freeze]
+  s.homepage = "https://github.com/test-kitchen/busser-serverspec".freeze
+  s.licenses = ["Apache 2.0".freeze]
+  s.rubygems_version = "2.6.14.1".freeze
+  s.summary = "A Busser runner plugin for Serverspec".freeze
+  s.test_files = ["features/plugin_install_command.feature".freeze, "features/plugin_list_command.feature".freeze, "features/support/env.rb".freeze, "features/test_command.feature".freeze]
 
-  spec.add_dependency 'busser'
-  spec.add_dependency 'rake'
-  spec.add_dependency 'rspec-core'
+  s.installed_by_version = "2.6.14.1" if s.respond_to? :installed_by_version
 
-  spec.add_development_dependency 'serverspec'
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
 
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'aruba', '0.6.1'
-  spec.add_development_dependency 'cucumber', '1.3.18'
-
-  spec.add_development_dependency 'cane'
-  spec.add_development_dependency 'log_switch', '~> 0.3.0'
-  spec.add_development_dependency 'tailor'
-  spec.add_development_dependency 'countloc'
-
-  spec.add_development_dependency 'coveralls'
-
-  if RUBY_VERSION < '2.0'
-    spec.add_development_dependency 'net-ssh', '< 2.10'
-    spec.add_development_dependency 'tins', '< 1.7'
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<busser>.freeze, [">= 0"])
+      s.add_runtime_dependency(%q<rake>.freeze, [">= 0"])
+      s.add_runtime_dependency(%q<rspec-core>.freeze, [">= 0"])
+      s.add_development_dependency(%q<serverspec>.freeze, [">= 0"])
+      s.add_development_dependency(%q<bundler>.freeze, ["~> 1.3"])
+      s.add_development_dependency(%q<aruba>.freeze, ["= 0.6.1"])
+      s.add_development_dependency(%q<cucumber>.freeze, ["= 1.3.18"])
+      s.add_development_dependency(%q<cane>.freeze, [">= 0"])
+      s.add_development_dependency(%q<log_switch>.freeze, ["~> 0.3.0"])
+      s.add_development_dependency(%q<tailor>.freeze, [">= 0"])
+      s.add_development_dependency(%q<countloc>.freeze, [">= 0"])
+      s.add_development_dependency(%q<coveralls>.freeze, [">= 0"])
+    else
+      s.add_dependency(%q<busser>.freeze, [">= 0"])
+      s.add_dependency(%q<rake>.freeze, [">= 0"])
+      s.add_dependency(%q<rspec-core>.freeze, [">= 0"])
+      s.add_dependency(%q<serverspec>.freeze, [">= 0"])
+      s.add_dependency(%q<bundler>.freeze, ["~> 1.3"])
+      s.add_dependency(%q<aruba>.freeze, ["= 0.6.1"])
+      s.add_dependency(%q<cucumber>.freeze, ["= 1.3.18"])
+      s.add_dependency(%q<cane>.freeze, [">= 0"])
+      s.add_dependency(%q<log_switch>.freeze, ["~> 0.3.0"])
+      s.add_dependency(%q<tailor>.freeze, [">= 0"])
+      s.add_dependency(%q<countloc>.freeze, [">= 0"])
+      s.add_dependency(%q<coveralls>.freeze, [">= 0"])
+    end
+  else
+    s.add_dependency(%q<busser>.freeze, [">= 0"])
+    s.add_dependency(%q<rake>.freeze, [">= 0"])
+    s.add_dependency(%q<rspec-core>.freeze, [">= 0"])
+    s.add_dependency(%q<serverspec>.freeze, [">= 0"])
+    s.add_dependency(%q<bundler>.freeze, ["~> 1.3"])
+    s.add_dependency(%q<aruba>.freeze, ["= 0.6.1"])
+    s.add_dependency(%q<cucumber>.freeze, ["= 1.3.18"])
+    s.add_dependency(%q<cane>.freeze, [">= 0"])
+    s.add_dependency(%q<log_switch>.freeze, ["~> 0.3.0"])
+    s.add_dependency(%q<tailor>.freeze, [">= 0"])
+    s.add_dependency(%q<countloc>.freeze, [">= 0"])
+    s.add_dependency(%q<coveralls>.freeze, [">= 0"])
   end
 end
