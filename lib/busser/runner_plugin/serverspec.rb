@@ -27,8 +27,10 @@ class Busser::RunnerPlugin::Serverspec < Busser::RunnerPlugin::Base
   postinstall do
     # Latest bundler does not work with older rubies
     if is_old_ruby?
+      banner("Installing bundler 1.17.3 for old Ruby #{RUBY_VERSION}")
       install_gem('bundler', '= 1.17.3')
     else
+      banner("Installing latest bundler for Ruby #{RUBY_VERSION}")
       install_gem('bundler')
   end
 
@@ -41,7 +43,7 @@ class Busser::RunnerPlugin::Serverspec < Busser::RunnerPlugin::Base
   end
 
   private
-  
+
   def is_old_ruby?
     requirement = Gem::Requirement.new "< 2.3.0"
     ruby_verion = Gem::Version.new RUBY_VERSION
@@ -49,9 +51,11 @@ class Busser::RunnerPlugin::Serverspec < Busser::RunnerPlugin::Base
   end
 
   def run_bundle_install
+    banner('Checking for local Gemfile')
     # Referred from busser-shindo
     gemfile_path = File.join(suite_path, 'serverspec', 'Gemfile')
     if File.exists?(gemfile_path)
+      banner('Found local Gemfile')
       # Bundle install local completes quickly if the gems are already found
       # locally it fails if it needs to talk to the internet. The || below is
       # the fallback to the internet-enabled version. It's a speed optimization.
