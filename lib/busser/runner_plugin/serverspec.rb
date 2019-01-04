@@ -25,7 +25,11 @@ require 'rubygems/dependency_installer'
 #
 class Busser::RunnerPlugin::Serverspec < Busser::RunnerPlugin::Base
   postinstall do
-    install_gem('bundler', '= 1.17.3')
+    # Latest bundler does not work with older rubies
+    if is_old_ruby?
+      install_gem('bundler', '= 1.17.3')
+    else
+      install_gem('bundler')
   end
 
   def test
@@ -37,6 +41,12 @@ class Busser::RunnerPlugin::Serverspec < Busser::RunnerPlugin::Base
   end
 
   private
+  
+  def is_old_ruby?
+    requirement = Gem::Requirement.new "< 2.3.0"
+    ruby_verion = Gem::Version.new RUBY_VERSION
+    requirement.satisfied_by? ruby_version
+  end
 
   def run_bundle_install
     # Referred from busser-shindo
